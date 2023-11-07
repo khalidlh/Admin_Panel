@@ -1,14 +1,35 @@
-<div class="container">
-    <div class="table-responsive">
+<div class="container-fluid">
+    <div class="table-responsive ">
         <div class="table-wrapper">
-            <div class="d-flex bd-highlight">
+            <div class="border w-">
+                <h3 class="text-center">Filtrage</h3>
+                <div class="d-flex bd-highlight ">
+                    <div class="p-2 flex-grow-1 bd-highlight">
+                        <div class="input-group">
+                            <select name="" id="" class="form-control bg-light border small">
+                                <option value="">Every roles</option>
+                                <option value="">Admin</option>
+                                <option value="">User</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <input type="date" name="" id="" class="form-control  bg-light border  small" >
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <input type="date" name="" id="" class="form-control  bg-light border  small">
+                    </div>
+                </div>
+
+            </div>
+            <div class="d-flex bd-highlight m-2 border">
                 <div class="p-2 flex-grow-1 bd-highlight">
                     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                            <input type="text" class="form-control bg-light border small" placeholder="Search for..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button"><i
+                                <button class="btn btn-warning" type="button"><i
                                         class="fas fa-search fa-sm"></i></button>
                             </div>
                         </div>
@@ -141,8 +162,8 @@
     aria-labelledby="modalTitleId" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalTitleId">Export to </h5>
+            <div class="modal-header bg-info">
+                <h5 class="modal-title" id="modalTitleId" style="color:white">Export to </h5>
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -154,7 +175,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Export</button>
+                <button type="button" class="btn btn-info">Export</button>
             </div>
         </div>
     </div>
@@ -169,8 +190,8 @@
     aria-labelledby="modalTitleId" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalTitleId">Modal title</h5>
+            <div class="modal-header bg-info">
+                <h5 class="modal-title text-center" id="modalTitleId" style="color:white">Add new user</h5>
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body ">
@@ -203,7 +224,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-info">Save</button>
             </div>
         </div>
     </div>

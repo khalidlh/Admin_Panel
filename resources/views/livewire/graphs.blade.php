@@ -116,6 +116,7 @@
         </div>
     </div>
 </div>
+{{-- how to push data in graph --}}
 <script>
     document.addEventListener('livewire:load', function() {
         var data = @json($data); // Convert PHP array to JSON

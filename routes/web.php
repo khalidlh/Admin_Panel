@@ -34,3 +34,6 @@ Route::get('/graphs',function() {
 Route::get('/message',function() {
     return view('authentification.messageactivation');
 });
+Route::get('/inbox',function() {
+    return view('mailing.inbox');
+});
