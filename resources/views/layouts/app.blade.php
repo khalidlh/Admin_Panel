@@ -20,7 +20,7 @@
     @yield('style')
 @livewireStyles
 </head>
-<body id="page-top">
+<body id="page-top" >
 @yield('content')
 @livewireScripts
 @yield('scripte')
@@ -42,7 +42,16 @@
     <script src="{{asset('assets/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{asset('assets/js/demo/chart-pie-demo.js')}}"></script>
     <script src="{{asset('assets/js/demo/chart-bar-demo.js')}}"></script>
-    
+    <script>
+      const btn = document.getElementById("changecolor");
+      const icone = document.getElementById("iconecolor");
+      const body = document.getElementById("content-");
+      function chnagecolor(){
+          //btn.classList.add('bg-light');
+         //btn.style.color:#ffffff;
+         body.classList.add('bg-dark');
+      }
+    </script>
 
 </body>
 
@@ -53,16 +62,16 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Logo Khalid lahmidi</h5>
-              <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+              <h5 class="modal-title" id="exampleModalLabel">Logo Khalid Lahmidi</h5>
+              <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="modal-body">
-              <img src="{{asset('assets/img/logo.jpg')}}" alt="..." width="100%">
+              <img src="{{asset('assets/img/logo.jpg')}}" alt="..." width="100%" >
             </div>
-            <div class="modal-footer">
+            {{-- <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
-            </div>
+              {{-- <button type="button" class="btn btn-primary">Save changes</button> --}
+            </div> --}}
           </div>
         </div>
       </div>

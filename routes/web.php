@@ -14,26 +14,34 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-
-Route::get('/app',function() {
     return view('admin.dashbord');
 });
 
-Route::get('/login',function() {
+
+Route::get('/app', function () {
+    return view('admin.dashbord');
+});
+Route::get('/setting', function () {
+    return view('admin.setting');
+});
+Route::get('/login', function () {
     return view('authentification.login');
 });
-Route::get('/users',function() {
+Route::get('/users', function () {
     return view('crud.gestionusers');
-});
-Route::get('/graphs',function() {
+})->name('users');
+Route::get('/graphs', function () {
     return view('graphs.graphs');
-});
-Route::get('/message',function() {
+})->name('charts');
+Route::get('/message', function () {
     return view('authentification.messageactivation');
 });
-Route::get('/inbox',function() {
+Route::get('/inbox', function () {
     return view('mailing.inbox');
+});
+Route::get('/profile', function () {
+    return view('profile.profile');
+});
+Route::get('/maps', function () {
+    return view('location.maps');
 });

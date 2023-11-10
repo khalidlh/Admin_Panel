@@ -3,21 +3,22 @@
         <div class="table-wrapper">
             <div class="border w-">
                 <h3 class="text-center">Filtrage</h3>
-                <div class="d-flex bd-highlight ">
+                <div class="d-flex  bd-highlight ">
                     <div class="p-2 flex-grow-1 bd-highlight">
                         <div class="input-group">
-                            <select name="" id="" class="form-control bg-light border small">
+                            {{-- <label for="">Roles</label> --}}
+                            <select name="" id="" class="form-control bg-light border">
                                 <option value="">Every roles</option>
                                 <option value="">Admin</option>
                                 <option value="">User</option>
                             </select>
                         </div>
                     </div>
-                    <div class="p-2 bd-highlight">
-                        <input type="date" name="" id="" class="form-control  bg-light border  small" >
+                    <div class="p-2 flex-grow-1 bd-highlight">
+                        <input type="date" name="" id="" class="form-control  bg-light border  " >
                     </div>
-                    <div class="p-2 bd-highlight">
-                        <input type="date" name="" id="" class="form-control  bg-light border  small">
+                    <div class="p-2 flex-grow-1 bd-highlight">
+                        <input type="date" name="" id="" class="form-control  bg-light border  ">
                     </div>
                 </div>
 
