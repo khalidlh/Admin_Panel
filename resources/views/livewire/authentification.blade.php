@@ -8,7 +8,7 @@
                 <div class="card-body p-0">
                     <!-- Nested Row within Card Body -->
                     <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block " style="background:url('{{asset('assets/img/logo.jpg')}}');background-position:center;background-size:cover"></div>
+                        <div class="col-lg-6 d-none d-lg-block " style="background:url('{{asset('assets/img/welcom.jpg')}}');background-position:center;background-size:cover"></div>
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
@@ -37,7 +37,7 @@
                                         Login
                                     </button>
                                     <hr>
-                                    <a href="index.html" class="btn btn-google btn-user btn-block">
+                                    <a href="{{route('google.authgoogle')}}" class="btn btn-google btn-user btn-block">
                                         <i class="fab fa-google fa-fw"></i> Login with Google
                                     </a>
                                     <a href="index.html" class="btn btn-facebook btn-user btn-block">
@@ -70,7 +70,7 @@
         <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
-                <div class="col-lg-5 d-none d-lg-block" style="background:url('{{asset('assets/img/logo1.jpeg')}}');background-position:center;background-size:cover"></div>
+                <div class="col-lg-5 d-none d-lg-block" style="background:url('{{asset('assets/img/hi.jpg')}}');background-position:center;background-size:cover"></div>
                 <div class="col-lg-7">
                     <div class="p-5">
                         <div class="text-center">
@@ -110,7 +110,7 @@
 
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-user btn-block">
+                            <button type="submit" class="btn btn-warning btn-user btn-block">
                                 Register Account
                             </button>
                             <hr>
@@ -149,7 +149,7 @@
                 <div class="card-body p-0">
                     <!-- Nested Row within Card Body -->
                     <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block bg-password-image"></div>
+                        <div class="col-lg-6 d-none d-lg-block" style="background: url('{{asset('assets/img/forgets1.jpg')}}'); background-position: center; background-size: cover;"></div>
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">

@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <title>App khalid</title>
-
+    <link rel="icon" type="image/x-icon" href="{{asset('assets/img/icone_kh.ico')}}">
     <!-- Custom fonts for this template-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"  />
     <link href="{{asset('assets/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
