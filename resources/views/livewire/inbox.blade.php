@@ -13,22 +13,22 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="sent-tab" data-toggle="tab" aria-controls="sent"
-                                href="#sent" role="tab" aria-selected="false">
+                            <a class="nav-link" id="sent-tab" data-toggle="tab" aria-controls="sent" href="#sent"
+                                role="tab" aria-selected="false">
                                 <span class="d-block d-md-none"><i class="ti-export"></i></span>
                                 <span class="d-none d-md-block">SENT</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="spam-tab" data-toggle="tab" aria-controls="spam"
-                                href="#spam" role="tab" aria-selected="false">
+                            <a class="nav-link" id="spam-tab" data-toggle="tab" aria-controls="spam" href="#spam"
+                                role="tab" aria-selected="false">
                                 <span class="d-block d-md-none"><i class="ti-panel"></i></span>
                                 <span class="d-none d-md-block">SPAM</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="delete-tab" data-toggle="tab" aria-controls="delete"
-                                href="#delete" role="tab" aria-selected="false">
+                            <a class="nav-link" id="delete-tab" data-toggle="tab" aria-controls="delete" href="#delete"
+                                role="tab" aria-selected="false">
                                 <span class="d-block d-md-none"><i class="ti-trash"></i></span>
                                 <span class="d-none d-md-block">DELETED</span>
                             </a>
@@ -36,8 +36,7 @@
                     </ul>
                 </div>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade active show" id="inbox" aria-labelledby="inbox-tab"
-                        role="tabpanel">
+                    <div class="tab-pane fade active show" id="inbox" aria-labelledby="inbox-tab" role="tabpanel">
                         <div>
                             <div class="row p-4 no-gutters align-items-center">
                                 <div class="col-sm-12 col-md-6">
@@ -48,7 +47,8 @@
                                     <ul class="list-inline dl mb-0 float-left float-md-right">
                                         <li class="list-inline-item text-info mr-3">
                                             <a href="#">
-                                                <button class="btn btn-circle btn-success text-white" data-toggle="modal" data-target="#modalId"
+                                                <button class="btn btn-circle btn-success text-white"
+                                                    data-toggle="modal" data-target="#modalId"
                                                     href="javascript:void(0)">
                                                     <i class="fa fa-plus"></i>
                                                 </button>
@@ -80,8 +80,7 @@
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input"
                                                         id="cst1" />
-                                                    <label class="custom-control-label"
-                                                        for="cst1">&nbsp;</label>
+                                                    <label class="custom-control-label" for="cst1">&nbsp;</label>
                                                 </div>
                                             </td>
                                             <!-- star -->
@@ -91,7 +90,7 @@
                                             </td>
                                             <!-- Message -->
                                             <td>
-                                                <a class="link" href="javascript: void(0)" >
+                                                <a class="link" href="javascript: void(0)">
                                                     <span
                                                         class="badge badge-pill text-white font-medium badge-danger mr-2">Work</span>
                                                     <span class="text-dark">Lorem ipsum perspiciatis-</span>
@@ -109,8 +108,7 @@
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input"
                                                         id="cst2" />
-                                                    <label class="custom-control-label"
-                                                        for="cst2">&nbsp;</label>
+                                                    <label class="custom-control-label" for="cst2">&nbsp;</label>
                                                 </div>
                                             </td>
                                             <!-- star -->
@@ -140,8 +138,7 @@
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input"
                                                         id="cst6" />
-                                                    <label class="custom-control-label"
-                                                        for="cst6">&nbsp;</label>
+                                                    <label class="custom-control-label" for="cst6">&nbsp;</label>
                                                 </div>
                                             </td>
                                             <!-- star -->
@@ -171,8 +168,7 @@
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input"
                                                         id="cst7" />
-                                                    <label class="custom-control-label"
-                                                        for="cst7">&nbsp;</label>
+                                                    <label class="custom-control-label" for="cst7">&nbsp;</label>
                                                 </div>
                                             </td>
                                             <!-- star -->
@@ -246,12 +242,13 @@
 
 <!-- Modal Body -->
 <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
-<div class="modal fade" id="modalId" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+<div class="modal fade" id="modalId" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog"
+    aria-labelledby="modalTitleId" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalTitleId">New Message</h5>
-                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <main>
@@ -327,15 +324,20 @@
                                     <span class="fa fa-paperclip"></span>
                                 </button>
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+                                    <button type="button" class="btn btn-light dropdown-toggle"
+                                        data-toggle="dropdown">
                                         <span class="fa fa-tags"></span>
                                         <span class="caret"></span>
                                     </button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">add label <span class="badge badge-danger"> Home</span></a>
-                                        <a class="dropdown-item" href="#">add label <span class="badge badge-info"> Job</span></a>
-                                        <a class="dropdown-item" href="#">add label <span class="badge badge-success"> Clients</span></a>
-                                        <a class="dropdown-item" href="#">add label <span class="badge badge-warning"> News</span></a>
+                                        <a class="dropdown-item" href="#">add label <span
+                                                class="badge badge-danger"> Home</span></a>
+                                        <a class="dropdown-item" href="#">add label <span
+                                                class="badge badge-info"> Job</span></a>
+                                        <a class="dropdown-item" href="#">add label <span
+                                                class="badge badge-success"> Clients</span></a>
+                                        <a class="dropdown-item" href="#">add label <span
+                                                class="badge badge-warning"> News</span></a>
                                     </div>
                                 </div>
                             </div>
@@ -363,5 +365,4 @@
 <!-- Optional: Place to the bottom of scripts -->
 <script>
     const myModal = new bootstrap.Modal(document.getElementById('modalId'), options)
-
 </script>

@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthWithGoogleController;
+use App\Http\Controllers\EmailAPIController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\ValidationLogin;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -17,8 +20,11 @@ use Laravel\Socialite\Facades\Socialite;
 
 Route::get('/', function () {
     return view('admin.dashbord');
+})->name('/');
+Route::prefix('login')->name('login.')->group(function(){
+    Route::get('/login',[ValidationLogin::class,'View_login'])->name('auth');
+    Route::get('/2FA',[ValidationLogin::class,'View_2FA']);
 });
-
 
 Route::get('/app', function () {
     return view('admin.dashbord');
@@ -26,9 +32,7 @@ Route::get('/app', function () {
 Route::get('/setting', function () {
     return view('admin.setting');
 })->name('setting');
-Route::get('/login', function () {
-    return view('authentification.login');
-})->name('auth');
+
 Route::get('/users', function () {
     return view('crud.gestionusers');
 })->name('users');
@@ -47,14 +51,14 @@ Route::get('/profile', function () {
 Route::get('/maps', function () {
     return view('location.maps');
 });
-Route::get('/auth/google', function () {
-    return Socialite::driver('google')->redirect();
-});
-Route::get('/auth/google/callback', function () {
-    $user = Socialite::driver('google')->user();
-   dd($user);
-});
+
 Route::prefix('google')->name('google.')->group(function(){
     Route::get('/auth/withgoogle',[AuthWithGoogleController::class,'redirectToGoogle'])->name('authgoogle');
     Route::get('/auth/google/callback1',[AuthWithGoogleController::class,'handleGoogleCallback'])->name('callback');
 });
+
+Route::get('/email',[EmailAPIController::class,'fetchEmails'])->name('ge');
+Route::get('sendsms',[NotificationController::class,'sendsms']);
+Route::get('MailMessages',[EmailAPIController::class,'index']);
+
+

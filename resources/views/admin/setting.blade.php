@@ -121,7 +121,7 @@
                         <div class="card">
                             <div class="card-header border-bottom mb-3 d-flex d-md-none">
                                 <ul class="nav nav-tabs card-header-tabs nav-gap-x-1" role="tablist">
-                                    <li class="nav-item">
+                                    {{-- <li class="nav-item">
                                         <a href="#profile" data-toggle="tab" class="nav-link has-icon active"><svg
                                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -130,7 +130,7 @@
                                                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                                 <circle cx="12" cy="7" r="4"></circle>
                                             </svg></a>
-                                    </li>
+                                    </li> --}}
                                     <li class="nav-item">
                                         <a href="#account" data-toggle="tab" class="nav-link has-icon"><svg
                                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -254,7 +254,7 @@
                                     <form>
                                         <div class="form-group">
                                             <label class="d-block">Two Factor Authentication</label>
-                                            <button class="btn btn-info" type="button">Enable two-factor
+                                            <button class="btn btn-info" type="button" data-toggle="modal" data-target="#modalId">Enable two-factor
                                                 authentication</button>
                                             <p class="small text-muted mt-2">Two-factor authentication adds an additional
                                                 layer of security to your account by requiring more than just a password to
@@ -379,3 +379,43 @@
         </div>
     </div>
 @endsection
+
+
+<!-- Modal Body -->
+<!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+<div class="modal fade" id="modalId" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitleId">Enable two-factor
+                    authentication</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               <form action="">
+                <div class="form-group row">
+                    <div class="col-6 mb-3 mb-0">
+                        <input type="text" class="form-control form-control-user" id="phone number"
+                            placeholder="phonenumber">
+                    </div>
+                    <div class="col-6">
+                        <input type="submit" class="form-control  btn btn-info" 
+                            placeholder="Last Name"  value="save">
+                    </div>
+                </div>
+               </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Optional: Place to the bottom of scripts -->
+<script>
+    const myModal = new bootstrap.Modal(document.getElementById('modalId'), options)
+
+</script>

@@ -22,7 +22,6 @@ class InboxController extends Controller
         foreach ($request->recipients as $recipient) {
             Mail::to($recipient)->send(new MessageMail($request->all()));
         }
-
         return response()->json([
             'success' => true,
         ]);

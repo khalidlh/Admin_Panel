@@ -7,6 +7,7 @@ use Livewire\Component;
 use App\Mail\PasswordForget;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Nette\Utils\Random;
 
 class Authentification extends Component
 {
@@ -35,7 +36,7 @@ class Authentification extends Component
         $validatedData = $this->validate(
             [
                 'First_name' => 'required|min:6',
-                'Email' => ['email', 'required', 'unique:users'],
+                'Email' => ['email', 'required'],//'unique:users'
                 'Last_name' => 'required|min:6',
                 // 'telephone' => ['required'],
                 // 'gen' => 'required',
@@ -66,6 +67,27 @@ class Authentification extends Component
         $user = User::where('email', $this->email_login)->first();
         if ($user) {
             if (Hash::check($this->password_login, $user->password)) {
+                /*
+                if($user->Enable_Tow_Factor == 1){
+                    $basic  = new \Vonage\Client\Credentials\Basic("c9e26963", "DFvCDcKgdUr0wtej");
+                    $client = new \Vonage\Client($basic);
+                    $response = $client->sms()->send(
+                        new \Vonage\SMS\Message\SMS("212667211796", 'Khalid app', 'A text message sent using the Nexmo SMS API')
+                    );
+
+                    $message = $response->current();
+
+                    if ($message->getStatus() == 0) {
+                        $code_generate = random value
+                       return redirect()->route('PageVerification')->with(code_generate);
+                    } else {
+                        echo "The message failed with status: " . $message->getStatus() . "\n";
+                  }
+                }else{
+                    return redirect()->route('getionusers');
+                }
+                 */
+               
                 return redirect()->route('getionusers');
             } else {
                 dd($validatedData);
@@ -73,6 +95,11 @@ class Authentification extends Component
         }
         dd($this->email_login);
     }
+
+    public function ValidationCode(){
+
+    }
+
 
     public function resetPassword()
     {

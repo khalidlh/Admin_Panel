@@ -17,7 +17,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="{{ route('/') }}">
               <i class="fas fa-fw fa-tachometer-alt"></i>
               <span>Dashboard</span></a>
       </li>
@@ -84,7 +84,7 @@
           <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                   <h6 class="collapse-header">Login Screens:</h6>
-                  <a class="collapse-item" href="{{ route('auth') }}">Authentification complet</a>
+                  <a class="collapse-item" href="{{ route('login.auth') }}">Authentification complet</a>
                   <div class="collapse-divider"></div>
                   <h6 class="collapse-header">Other Pages:</h6>
                   <a class="collapse-item" href="404.html">404 Page</a>
@@ -108,14 +108,14 @@
       </li>
       <li class="nav-item">
           <a class="nav-link" href="#">
-            <i class="fa-solid fa-database"></i>
+              <i class="fa-solid fa-database"></i>
               <span>Analyse data</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{">
-            <i class="fa-solid fa-table-columns"></i>
-            <span>Multi form</span></a>
-    </li>
+          <a class="nav-link" href="{">
+              <i class="fa-solid fa-table-columns"></i>
+              <span>Multi form</span></a>
+      </li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 

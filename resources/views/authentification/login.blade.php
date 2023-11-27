@@ -5,6 +5,9 @@
         color:red;
         font-size: 10px;
     }
+    a:hover{
+        cursor: pointer;
+    }
 
 </style>
     

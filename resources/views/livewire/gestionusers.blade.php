@@ -15,7 +15,7 @@
                         </div>
                     </div>
                     <div class="p-2 flex-grow-1 bd-highlight">
-                        <input type="date" name="" id="" class="form-control  bg-light border  " >
+                        <input type="date" name="" id="" class="form-control  bg-light border  ">
                     </div>
                     <div class="p-2 flex-grow-1 bd-highlight">
                         <input type="date" name="" id="" class="form-control  bg-light border  ">
@@ -25,10 +25,11 @@
             </div>
             <div class="d-flex bd-highlight m-2 border">
                 <div class="p-2 flex-grow-1 bd-highlight">
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
+                                aria-label="Search" aria-describedby="basic-addon2" wire:model="searchTerm">
                             <div class="input-group-append">
                                 <button class="btn btn-warning" type="button"><i
                                         class="fas fa-search fa-sm"></i></button>
@@ -37,7 +38,7 @@
                     </form>
                 </div>
                 <div class="p-2 bd-highlight">
-                    <button type="button" class="btn btn-secondary " data-toggle="modal" data-target="#modalId1">
+                    <button type="button" class="btn btn-info " data-toggle="modal" data-target="#modalId1">
                         Add New User </button>
                 </div>
                 <div class="p-2 bd-highlight">
@@ -61,14 +62,61 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td class="imgtd"><img src="{{ asset('assets/img/khalid.jpg') }}" class="avatar mr-2" alt="Avatar"><a href="#">Paula Wilson</a></td>
+                        <td class="imgtd"><img src="{{ asset('assets/img/khalid.jpg') }}" class="avatar mr-2"
+                                alt="Avatar"><a href="#">Paula Wilson</a></td>
                         {{-- <td></td> --}}
                         <td>04/10/2013</td>
                         <td>Admin</td>
                         <td><span class="status text-success">&bull;</span> Active</td>
                         <td class="d-flex justify-content-around">
-                            <a href="#" class="settings" title="Settings" role="button" data-toggle="modal" data-target="#modalId3"><i class="fa-solid fa-file-pen"></i></a>
-                            <a href="#" class="delete" title="Delete" role="button" data-toggle="modal" data-target="#modalId2"><i class="fa-regular fa-trash-can"></i></a>
+                            <a href="#" class="settings" title="Settings" role="button" data-toggle="modal"
+                                data-target="#modalId3"><i class="fa-solid fa-file-pen"></i></a>
+                            <a href="#" class="delete" title="Delete" role="button" data-toggle="modal"
+                                data-target="#modalId2"><i class="fa-regular fa-trash-can"></i></a>
+                            <a href="#" class="greenfont" title="view" role="button" data-toggle="modal"
+                                data-target="#modalId2"><i class="fa-solid fa-eye"></i></a>
+                            {{-- <button type="button" class="btn btn-primary btn-lg" >
+                              Launch
+                            </button> --}}
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="imgtd"><img src="{{ asset('assets/img/khalid.jpg') }}" class="avatar mr-2"
+                                alt="Avatar"><a href="#">Paula Wilson</a></td>
+                        {{-- <td></td> --}}
+                        <td>04/10/2013</td>
+                        <td>Admin</td>
+                        <td><span class="status text-success">&bull;</span> Active</td>
+                        <td class="d-flex justify-content-around">
+                            <a href="#" class="settings" title="Settings" role="button" data-toggle="modal"
+                                data-target="#modalId3"><i class="fa-solid fa-file-pen"></i></a>
+                            <a href="#" class="delete" title="Delete" role="button" data-toggle="modal"
+                                data-target="#modalId2"><i class="fa-regular fa-trash-can"></i></a>
+                            <a href="#" class="greenfont" title="view" role="button" data-toggle="modal"
+                                data-target="#modalId2" ><i class="fa-solid fa-eye"></i></a>
+                            {{-- <button type="button" class="btn btn-primary btn-lg" >
+                              Launch
+                            </button> --}}
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td class="imgtd"><img src="{{ asset('assets/img/khalid.jpg') }}" class="avatar mr-2"
+                                alt="Avatar"><a href="#">Paula Wilson</a></td>
+                        {{-- <td></td> --}}
+                        <td>04/10/2013</td>
+                        <td>Admin</td>
+                        <td><span class="status text-success">&bull;</span> Active</td>
+                        <td class="d-flex justify-content-around">
+                            <a href="#" class="settings" title="Settings" role="button" data-toggle="modal"
+                                data-target="#modalId3"><i class="fa-solid fa-file-pen"></i></a>
+                            <a href="#" class="delete" title="Delete" role="button" data-toggle="modal"
+                                data-target="#modalId2"><i class="fa-regular fa-trash-can"></i></a>
+                            <a href="#" class="greenfont" title="view" role="button" data-toggle="modal"
+                                data-target="#modalId2"><i class="fa-solid fa-eye"></i></a>
                             {{-- <button type="button" class="btn btn-primary btn-lg" >
                               Launch
                             </button> --}}
@@ -76,71 +124,79 @@
                         </td>
                     </tr>
                     <!-- Modal trigger button -->
-                    
+
                     <!-- Modal Body -->
-                   
-                    <div class="modal fade" id="modalId2" tabindex="-1" data-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+
+                    <div class="modal fade" id="modalId2" tabindex="-1" data-backdrop="static"
+                        data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+                            role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="modalTitleId">Modal title</h5>
-                                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                                    <button type="button" class="btn-close" data-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     Body
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary"
+                                        data-dismiss="modal">Close</button>
                                     <button type="button" class="btn btn-primary">Save</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     {{-- modal for delet --}}
-                    <div class="modal fade" id="modalId3" tabindex="-1" data-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
+                    <div class="modal fade" id="modalId3" tabindex="-1" data-backdrop="static"
+                        data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg"
+                            role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="modalTitleId">Modal title</h5>
-                                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                                    <button type="button" class="btn-close" data-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <form action="">
                                         <div class="form-group row">
                                             <div class="col-6 mb-3 mb-0">
-                                                <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                                    placeholder="First Name">
+                                                <input type="text" class="form-control form-control-user"
+                                                    id="exampleFirstName" placeholder="First Name">
                                             </div>
                                             <div class="col-6">
-                                                <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                                    placeholder="Last Name">
+                                                <input type="text" class="form-control form-control-user"
+                                                    id="exampleLastName" placeholder="Last Name">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                                placeholder="Email Address">
+                                            <input type="email" class="form-control form-control-user"
+                                                id="exampleInputEmail" placeholder="Email Address">
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-6 mb-3 mb-0">
-                                                <input type="password" class="form-control form-control-user" id="exampleInputPassword"
-                                                    placeholder="Password">
+                                                <input type="password" class="form-control form-control-user"
+                                                    id="exampleInputPassword" placeholder="Password">
                                             </div>
                                             <div class="col-6">
-                                                <input type="password" class="form-control form-control-user" id="exampleRepeatPassword"
-                                                    placeholder="Repeat Password">
+                                                <input type="password" class="form-control form-control-user"
+                                                    id="exampleRepeatPassword" placeholder="Repeat Password">
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary"
+                                        data-dismiss="modal">Close</button>
                                     <button type="button" class="btn btn-primary">Save</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                  
+
+
                 </tbody>
             </table>
             {{-- <div class="clearfix">
@@ -163,7 +219,7 @@
     aria-labelledby="modalTitleId" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">
-            <div class="modal-header bg-info">
+            <div class="modal-header bg-primary">
                 <h5 class="modal-title" id="modalTitleId" style="color:white">Export to </h5>
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -233,3 +289,11 @@
 
 
 <!-- Optional: Place to the bottom of scripts -->
+
+<script>
+    const searchInput = document.getElementById('searchInput');
+
+    searchInput.addEventListener('keyup', () => {
+        @this.searchTerm = searchInput.value;
+    });
+</script>
