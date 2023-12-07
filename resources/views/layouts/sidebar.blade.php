@@ -92,7 +92,19 @@
               </div>
           </div>
       </li>
-
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1"
+            aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>E-commerce</span>
+        </a>
+        <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="404.html">Product</a>
+                <a class="collapse-item" href="blank.html">paiment</a>
+            </div>
+        </div>
+    </li>
       <!-- Nav Item - Charts -->
       <li class="nav-item">
           <a class="nav-link" href="{{ route('charts') }}">

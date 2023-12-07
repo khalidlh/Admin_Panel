@@ -3,9 +3,9 @@
     <style>
         
 
-        .main-body {
+        /* .main-body {
             padding: 15px;
-        }
+        } */
 
         .nav-link {
             color: #4a5568;
@@ -121,16 +121,6 @@
                         <div class="card">
                             <div class="card-header border-bottom mb-3 d-flex d-md-none">
                                 <ul class="nav nav-tabs card-header-tabs nav-gap-x-1" role="tablist">
-                                    {{-- <li class="nav-item">
-                                        <a href="#profile" data-toggle="tab" class="nav-link has-icon active"><svg
-                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                class="feather feather-user">
-                                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                                <circle cx="12" cy="7" r="4"></circle>
-                                            </svg></a>
-                                    </li> --}}
                                     <li class="nav-item">
                                         <a href="#account" data-toggle="tab" class="nav-link has-icon"><svg
                                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -270,9 +260,9 @@
                                             <ul class="list-group list-group-sm">
                                                 <li class="list-group-item has-icon">
                                                     <div>
-                                                        <h6 class="mb-0">San Francisco City 190.24.335.55</h6>
-                                                        <small class="text-muted">Your current session seen in United
-                                                            States</small>
+                                                        <h6 class="mb-0">Kelaa des sraghna, morrocco</h6>
+                                                        <small class="text-muted">Your current session seen in 
+                                                            Morocco</small>
                                                     </div>
                                                     <button class="btn btn-light btn-sm ml-auto" type="button">More
                                                         info</button>
