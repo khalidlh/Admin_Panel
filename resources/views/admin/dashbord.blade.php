@@ -9,7 +9,7 @@
         <div id="content-wrapper" class="d-flex flex-column">
             <!-- Main Content -->
             <div id="content">
-                      @include('layouts.topbar')
+                @include('layouts.topbar')
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -109,35 +109,44 @@
 
                     <!-- Content Row -->
 
-                   
+
 
                     <!-- Content Row -->
                     <div class="row">
 
-                       
+
 
                         <div class="col-lg mb-4">
 
                             <!-- Illustrations -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">For me {{'carousel'}}</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">For me {{ 'carousel' }}</h6>
                                 </div>
                                 <div class="card-body">
-                                    <div class="text-center">
-                                        <img class="img-fluid px-3 px-sm-4 mb-4" style="width: 20rem; "
-                                            src="{{asset('assets/img/khalid.jpg')}}" alt="...">
+                                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img src="{{asset('assets/img/khalid.jpg')}}" class="d-block w-50" alt="...">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="{{asset('assets/img/logo.jpg')}}" class="d-block w-50" alt="...">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="{{asset('assets/img/khalid.jpg')}}" class="d-block w-50" alt="...">
+                                            </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button"
+                                            data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button"
+                                            data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
                                     </div>
-                                        <p>
-                                            I'm full stack developper Lorem ipsum dolor sit amet consectetur adipisicing elit. Et provident a expedita aliquam voluptas dolorum laudantium tempore aperiam enim reiciendis suscipit inventore similique ullam, neque, maxime officiis iste magnam. Nostrum.
-                                        </p>
-                                        <h3>Contact</h3>
-                                        <ul>
-                                            <li>khalid.lahmidi2001@gmail.com</li>
-                                            <li>+212643020788</li>
-                                            <li><a href="https://portfoliokhalidlh.000webhostapp.com/">My portfolio</a></li>
-                                            <li><a href="https://linkedin.com/in/khalid-lahmidi-5975b2254">Linkden</a></li>
-                                        </ul>
                                 </div>
                             </div>
 
@@ -204,5 +213,4 @@
             </div>
         </div>
     </div>
-
 @endsection

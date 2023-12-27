@@ -36,6 +36,7 @@ class Inbox extends Component
     {
         // Validate the message data.
         $this->validate([
+            'recipient',
             'subject' => 'required',
             'body' => 'required',
         ]);
@@ -58,6 +59,9 @@ class Inbox extends Component
         $this->recipients = [];
     }
 
+    public function DraftMessage()
+    {
+    }
     public function render()
     {
         return view('livewire.inbox');

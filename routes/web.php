@@ -60,5 +60,5 @@ Route::prefix('google')->name('google.')->group(function(){
 Route::get('/email',[EmailAPIController::class,'fetchEmails'])->name('ge');
 Route::get('sendsms',[NotificationController::class,'sendsms']);
 Route::get('MailMessages',[EmailAPIController::class,'index']);
-
+Route::get('/productliste',function(){return view('e-commerce.product.productliste');});
 
