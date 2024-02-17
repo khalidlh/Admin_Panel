@@ -4,10 +4,21 @@
             <div class="border w-">
                 <h3 class="text-center">Search Filter</h3>
                 <div class="d-flex  bd-highlight ">
+                    <div class="p-2 flex-grow-1 bd-highlight text-center">
+                        <label for="role" style="font-size: 20px"> Role</label>
+                    </div>
+                    <div class="p-2 flex-grow-1 bd-highlight text-center">
+                        <label for="status" style="font-size: 20px">Statut</label>
+                    </div>
+                    <div class="p-2 flex-grow-1 bd-highlight text-center">
+                        <label for="date_created" style="font-size: 20px"> Date created</label>
+                    </div>
+                </div>
+                <div class="d-flex  bd-highlight ">
                     <div class="p-2 flex-grow-1 bd-highlight">
                         <div class="input-group">
                             {{-- <label for="">Roles</label> --}}
-                            <select id="" class="form-control bg-light border" wire:model="RoleUser"
+                            <select id="role" class="form-control bg-light border" wire:model="RoleUser"
                                 wire:change='selectrole($event.target.value)'>
                                 <option value="all">all</option>
                                 <option value="Admin">Admin</option>
@@ -18,15 +29,16 @@
                     <div class="p-2 flex-grow-1 bd-highlight">
                         <div class="input-group">
                             {{-- <label for="">Roles</label> --}}
-                            <select id="" class="form-control bg-light border">
-                                <option value="all">select statues</option>
+                            <select id="status" class="form-control bg-light border" wire:model="Statutuser"
+                            wire:change='selectstatu($event.target.value)'>
+                                <option value="all">all</option>
                                 <option value="active">active</option>
                                 <option value="inactive">inactive</option>
                             </select>
                         </div>
                     </div>
                     <div class="p-2 flex-grow-1 bd-highlight">
-                        <input type="date" name="" id="" class="form-control  bg-light border  ">
+                        <input type="date" id="date_created" class="form-control  bg-light border">
                     </div>
                 </div>
 
@@ -36,7 +48,7 @@
                     <div class="d-none d-inline-block form-inline  ml-md-3 my-2 my-md-0 mw-100 searchdata">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border border-info small"
-                                placeholder="Search with First Name or last name or email" wire:model="search"
+                                placeholder="Search with First Name or last name or email" wire:model.debounce.300ms="search"
                                 wire:change='searchwithNameorEmail()'>
                             {{-- <div class="input-group-append">
                                 <button class="btn btn-warning" type="button"><i
@@ -47,11 +59,11 @@
                 </div>
                 <div class="p-2 bd-highlight">
                     <button type="button" class="btn btn-info " data-toggle="modal" data-target="#modalId1">
-                        Add New User </button>
+                        <i class="fa-solid fa-user-plus"></i> </button>
                 </div>
                 <div class="p-2 bd-highlight">
                     <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#modalId">
-                        Export to </button>
+                        <i class="fa-solid fa-download"></i> </button>
                 </div>
             </div>
 
@@ -68,16 +80,20 @@
                 </thead>
                 <tbody>
                     @if ($data_users !== null)
-                        {{-- @if (count($data_users) > 0) --}}
+                        @if (count($data_users) > 0)
                         @foreach ($data_users as $data_user)
                             <tr>
                                 <td>{{ $data_user->id }}</td>
-                                <td class="imgtd"><img src="{{ asset('assets/img/khalid.jpg') }}" class="avatar mr-2"
+                                <td class="imgtd"><img src="{{ asset('assets/img/avatar.webp') }}" class="avatar mr-2"
                                         alt="Avatar"><a href="#">{{ $data_user->Last_name }}</a></td>
                                 {{-- <td></td> --}}
                                 <td>04/10/2013</td>
                                 <td><i class="fa-solid fa-laptop-code mr-1"></i>{{ $data_user->role }}</td>
+                                @if ($data_user->Activation == 1)
                                 <td><span class="status text-success">&bull;</span> Active</td>
+                                @else
+                                <td><span class="status text-danger">&bull;</span> Inactive</td>
+                                @endif
                                 <td class="d-flex justify-content-around">
                                     <div class="dropdown">
                                         <button class="btn  dropdown-toggle" style="color:black" type="button"
@@ -179,13 +195,20 @@
                             </div>
                         @endforeach
                         <div class="d-flex justify-content-center">
+                            {{-- <div class="form-group">
+                                <select wire:model="number_page" id="" class="form-control">
+                                    <option value="{{$number_page}}">{{$number_page}}</option>
+                                    <option value="8">8</option>
+                                    <option value="15">15</option>
+                                </select>
+                            </div> --}}
                             {!! $data_users->links('vendor.pagination.bootstrap-5') !!}
                         </div>
-                        {{-- @else
+                         @else
                     <tr>
-                        <td colspan="6">No results found for your search</td>
+                        <td colspan="6" class="text-center">No results found for your search</td>
                     </tr>
-                    @endif --}}
+                    @endif 
                     @endif
                 </tbody>
             </table>

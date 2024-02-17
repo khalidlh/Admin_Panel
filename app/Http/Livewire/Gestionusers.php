@@ -12,7 +12,7 @@ class Gestionusers extends Component
     public $First_name, $Last_name, $Email, $password;
     protected $data_users;
     public  $number_page = 5;
-    public $statu = 'all';
+    public $Statutuser = 'all';
     public $RoleUser = 'all';
     public $search = '';
 
@@ -113,6 +113,13 @@ class Gestionusers extends Component
     }
     public function selectstatu($value)
     {
+        if ($value == 'active') {
+            $this->data_users = User::where('Activation', '1')->paginate($this->number_page);
+        } elseif ($value == 'inactive') {
+            $this->data_users = User::where('Activation', '0')->paginate($this->number_page);
+        } else {
+            $this->data_users = User::paginate($this->number_page);
+        }
     }
 
     public function render()
