@@ -18,8 +18,7 @@
                     <div class="p-2 flex-grow-1 bd-highlight">
                         <div class="input-group">
                             {{-- <label for="">Roles</label> --}}
-                            <select id="role" class="form-control bg-light border" wire:model="RoleUser"
-                                wire:change='selectrole($event.target.value)'>
+                            <select id="role" class="form-control bg-light border" wire:model="RoleUser">
                                 <option value="all">all</option>
                                 <option value="Admin">Admin</option>
                                 <option value="User">User</option>
@@ -29,8 +28,7 @@
                     <div class="p-2 flex-grow-1 bd-highlight">
                         <div class="input-group">
                             {{-- <label for="">Roles</label> --}}
-                            <select id="status" class="form-control bg-light border" wire:model="Statutuser"
-                            wire:change='selectstatu($event.target.value)'>
+                            <select id="status" class="form-control bg-light border" wire:model="Statutuser">
                                 <option value="all">all</option>
                                 <option value="active">active</option>
                                 <option value="inactive">inactive</option>
@@ -41,15 +39,14 @@
                         <input type="date" id="date_created" class="form-control  bg-light border">
                     </div>
                 </div>
-
             </div>
             <div class="d-flex bd-highlight m-2 border">
                 <div class="p-2 flex-grow-1 bd-highlight">
                     <div class="d-none d-inline-block form-inline  ml-md-3 my-2 my-md-0 mw-100 searchdata">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border border-info small"
+                            <input type="text" class="form-control bg-light border border-info "
                                 placeholder="Search with First Name or last name or email" wire:model.debounce.300ms="search"
-                                wire:change='searchwithNameorEmail()'>
+                               >
                             {{-- <div class="input-group-append">
                                 <button class="btn btn-warning" type="button"><i
                                         class="fas fa-search fa-sm"></i></button>
@@ -58,11 +55,11 @@
                     </div>
                 </div>
                 <div class="p-2 bd-highlight">
-                    <button type="button" class="btn btn-info " data-toggle="modal" data-target="#modalId1">
+                    <button type="button" class="btn btn-info " data-toggle="modal" data-target="#CreateUser">
                         <i class="fa-solid fa-user-plus"></i> </button>
                 </div>
                 <div class="p-2 bd-highlight">
-                    <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#modalId">
+                    <button type="button" class="btn btn-primary "data-toggle="modal" data-target="#modalId">
                         <i class="fa-solid fa-download"></i> </button>
                 </div>
             </div>
@@ -245,8 +242,7 @@
 
 <!-- Modal Body -->
 <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
-<div class="modal fade " id="modalId1" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog"
-    aria-labelledby="modalTitleId" aria-hidden="true">
+<div wire:ignore.self class="modal fade " id="CreateUser" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header bg-info">
@@ -254,49 +250,54 @@
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body ">
-                <form action="">
+                <form wire:submit.prevent="Add_user">
                     <div class="form-group row">
                         <div class="col-6 mb-3 mb-0">
-                            <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                placeholder="First Name">
+                            <input type="text" class="form-control form-control-user" 
+                                placeholder="First Name" wire:model='First_name'>
+                                @error('First_name') <span class="error">{{ $message }}</span> @enderror
                         </div>
                         <div class="col-6">
-                            <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                placeholder="Last Name">
+                            <input type="text" class="form-control form-control-user" 
+                                placeholder="Last Name" wire:model='Last_name'>
+                                @error('Last_name') <span class="error">{{ $message }}</span> @enderror
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                            placeholder="Email Address">
+                        <input type="email" class="form-control form-control-user" 
+                            placeholder="Email Address" wire:model='Email'>
+                            @error('Email') <span class="error">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group row">
                         <div class="col-6 mb-3 mb-0">
                             <input type="password" class="form-control form-control-user" id="exampleInputPassword"
-                                placeholder="Password">
-                        </div>
-                        <div class="col-6">
-                            <input type="password" class="form-control form-control-user" id="exampleRepeatPassword"
-                                placeholder="Repeat Password">
+                                placeholder="Password" wire:model='password'>
                         </div>
                     </div>
+                    <button class="btn btn-info">Save</button>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-info">Save</button>
+               
             </div>
         </div>
     </div>
 </div>
 
-
+@if ($errors->has('First_name'))
+        <script>
+            $(function() {
+                $('#CreateUser').modal({
+                    show: true
+                });
+     });
+    </script>
+@endif
 <!-- Optional: Place to the bottom of scripts -->
 
 <script>
-    // const searchInput = document.getElementById('searchInput');
-    // searchInput.addEventListener('keyup', () => {
-    //     @this.searchTerm = searchInput.value;
-    // });
+ 
     document.addEventListener('livewire:load', function() {
         Livewire.on('paginationUpdated', () => {
             window.scrollTo(0, 0); // Scroll to the top after changing the page

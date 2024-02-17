@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire;
 
+use Carbon\Carbon;
 use App\Models\User;
 use Livewire\Component;
-use Illuminate\Support\Facades\Hash;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Hash;
+
 class Gestionusers extends Component
 {
     use WithPagination;
@@ -19,27 +21,27 @@ class Gestionusers extends Component
 
     public function Add_user()
     {
-        $validatedData = $this->validate(
+       $this->validate(
             [
-                'First_name' => 'required|min:6',
+                'First_name' => 'required',
                 'Email' => ['email', 'required'], //'unique:users'
-                'Last_name' => 'required|min:6',
+                'Last_name' => 'required',
                 // 'Telephone' => ['required'],
                 // 'Gen' => 'required',
                 'password' => 'required|min:8|max:12',
             ]
         );
-        try {
-            User::create([
-                'First_name' => $this->First_name,
-                'Last_name' => $this->Last_name,
-                'Activation' => 0,
-                'email' => $this->Email,
-                'password' => Hash::make($this->password)
-            ]);
-        } catch (\Throwable $th) {
-            dd('erreur');
-        }
+        // try {
+        //     User::create([
+        //         'First_name' => $this->First_name,
+        //         'Last_name' => $this->Last_name,
+        //         'Activation' => 0,
+        //         'email' => $this->Email,
+        //         'password' => Hash::make($this->password)
+        //     ]);
+        // } catch (\Throwable $th) {
+        //     dd('erreur');
+        // }
         //session success
     }
     public function Edit_user()
@@ -75,68 +77,49 @@ class Gestionusers extends Component
     public function Delete_all_users()
     {
     }
-    public function mount()
-    {
-        $this->searchwithNameorEmail();
-        // $this->data_users = User::paginate($this->number_page);
-    }
-    public function updateserach()
-    {
-        $this->resetPage();
-        $this->searchwithNameorEmail();
-    }
-    public function searchwithNameorEmail()
-    {
-        // dd($value);
-        // echo $this->search;
-        if ($this->search == '') {
-            $this->data_users = User::paginate($this->number_page);
-        } else {
-           // return $this->search;
-            //dd($this->search);
-            $this->data_users = User::where('id', $this->search)
-                ->orwhere('Last_name', 'LIKE', '%' . $this->search . '%')
-                ->orwhere('email', 'LIKE', '%' . $this->search . '%')
-                ->paginate($this->number_page);
-        }
-    }
-    public function selectrole($value)
-    {
-        //dd($value);
-        if ($value == 'Admin') {
-            $this->data_users = User::where('role', 'Admin')->paginate($this->number_page);
-        } elseif ($value == 'User') {
-            $this->data_users = User::where('role', 'User')->paginate($this->number_page);
-        } else {
-            $this->data_users = User::paginate($this->number_page);
-        }
-    }
-    public function selectstatu($value)
-    {
-        if ($value == 'active') {
-            $this->data_users = User::where('Activation', '1')->paginate($this->number_page);
-        } elseif ($value == 'inactive') {
-            $this->data_users = User::where('Activation', '0')->paginate($this->number_page);
-        } else {
-            $this->data_users = User::paginate($this->number_page);
-        }
-    }
-
+  //Render la page avec filtrage 
     public function render()
     {
-        
-        return view(
-            'livewire.gestionusers',
-            ['data_users' => $this->data_users]
-        );
+            $data_users = User::query();
+    
+            if ($this->search !== '') {
+                $data_users->where('Last_name', 'like', '%' . $this->search . '%')
+                          ->orWhere('email', 'like', '%' . $this->search . '%')
+                          ->paginate($this->number_page);
+            }
+    
+            if ($this->RoleUser !== 'all') {
+                    $data_users->where('role',$this->RoleUser)->paginate($this->number_page);
+     
+            }
+    
+            if ($this->Statutuser !== 'all') {
+                if ($this->Statutuser == 'active') {
+                    $data_users->where('Activation', '1')->paginate($this->number_page);
+                } elseif ($this->Statutuser == 'inactive') {
+                    $data_users->where('Activation', '0')->paginate($this->number_page);
+                }
+    
+            }
+    
+            // if ($this->startDate !== null) {
+            //     $users->whereDate('created_at', '>=', Carbon::parse($this->startDate));
+            // }
+    
+            // if ($this->endDate !== null) {
+            //     $users->whereDate('created_at', '<=', Carbon::parse($this->endDate));
+            // }
+    
+            $data_users = $data_users->paginate($this->number_page);
+    
+            return view('livewire.gestionusers', compact('data_users'));
+        }
+    
+
+    public function export()
+    {
     }
 
-    public function export_csv()
-    {
-    }
-    public function export_pdf()
-    {
-    }
 
     public function ed($id)
     {
